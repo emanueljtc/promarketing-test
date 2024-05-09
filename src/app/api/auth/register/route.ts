@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import db from '@/libs/db';
 import bcrypt from 'bcrypt';
 
-export async function POST(request: { json: () => any }) {
+export async function POST(request: Request) {
   try {
     const data = await request.json();
     const userFound = await db.user.findUnique({
