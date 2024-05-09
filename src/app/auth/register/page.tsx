@@ -1,13 +1,16 @@
 'use client';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { useRouter } from 'next/navigation';
-import './style.css';
+import '../style.css';
+import { Button } from '@/app/components';
+import Link from 'next/link';
 const RegisterPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     criteriaMode: 'all',
   });
@@ -36,7 +39,7 @@ const RegisterPage = () => {
 
   return (
     <div className="content">
-      <form action="/api/auth/register" onSubmit={onSubmit} className="form">
+      <form onSubmit={onSubmit} className="form">
         <h1 className="title">Register</h1>
         <label htmlFor="username" className="label">
           Username:
@@ -137,13 +140,20 @@ const RegisterPage = () => {
             })
           }
         />
-        <button type="submit" className="button-primary mt-4">
-          Save
-        </button>
+        <Button
+          title="Register"
+          variant="primary"
+          type="submit"
+          isDisabled={!isValid}
+        />
+        <Link href="/auth/login" className="link">
+          Go to login
+        </Link>
       </form>
     </div>
   );
 };
 
 export default RegisterPage;
+
 
