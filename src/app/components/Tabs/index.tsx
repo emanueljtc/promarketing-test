@@ -25,6 +25,8 @@ type TProviders = {
   checked: boolean;
 };
 
+type TForTime = 'temporary' | 'permanent' | '';
+
 const roboto = Roboto({ weight: ['700'], subsets: ['latin'] });
 const Tabs = () => {
   const [tab, setTab] = React.useState<string>('create');
@@ -32,8 +34,12 @@ const Tabs = () => {
     { id: 'create', ariaName: 'Crear Solicitud' },
     { id: 'limit', ariaName: 'Limite de deposito' },
   ];
-  const [allProviders, setAllProviders] = React.useState<boolean>(false);
+  const [selectAllProviders, setSelectAllProviders] =
+    React.useState<boolean>(false);
+
   const [providers, setProviders] = React.useState<TProviders[]>([]);
+  const [forTime, setForTime] = React.useState<TForTime>('');
+
   const callProviders = async () => {
     try {
       const response = await fetch(
@@ -70,13 +76,13 @@ const Tabs = () => {
     const changeData = providers.map((item) => {
       return {
         ...item,
-        checked: !allProviders ? true : false,
+        checked: !selectAllProviders ? true : false,
       };
     });
 
     setProviders([...changeData]);
 
-    setAllProviders(!allProviders);
+    setSelectAllProviders(!selectAllProviders);
   };
 
   const changeDataProviders = (id: number) => {
@@ -110,7 +116,7 @@ const Tabs = () => {
                   <Checkbox
                     index={0}
                     title="Todos"
-                    checked={allProviders}
+                    checked={selectAllProviders}
                     onChange={() => handleCheckboxChange()}
                   />
                 </div>
@@ -129,22 +135,33 @@ const Tabs = () => {
             </div>
           </ContainerForm>
         </div>
-        <section id="rauchbier" className="tab-panel">
-          <h2>6B. Rauchbier</h2>
-          <p>
-            <strong>Overall Impression:</strong> An elegant, malty German amber
-            lager with a balanced, complementary beechwood smoke character.
-            Toasty-rich malt in aroma and flavor, restrained bitterness, low to
-            high smoke flavor, clean fermentation profile, and an attenuated
-            finish are characteristic.
-          </p>
-          <p>
-            <strong>History:</strong> A historical specialty of the city of
-            Bamberg, in the Franconian region of Bavaria in Germany.
-            Beechwood-smoked malt is used to make a Märzen-style amber lager.
-            The smoke character of the malt varies by maltster; some breweries
-            produce their own smoked malt (rauchmalz).
-          </p>
+        <section id="limit" className="tab-panel">
+          <div className="bg-gray-transparent rounded-lg p-3.5 max-w-3xl md:min-w-[48rem]">
+            <h2 className={`${roboto.className} title-tab`}>
+              Por un periodo de tiempo{' '}
+            </h2>
+            <div className="tab_panel_content w-3/4 md:w-2/5">
+              <Checkbox
+                title="Temporal hasta"
+                checked={forTime === 'temporary' ? true : false}
+                type="radio"
+                onChange={() => setForTime('temporary')}
+              />
+              <Checkbox
+                title="Indefinido"
+                checked={forTime === 'permanent' ? true : false}
+                type="radio"
+                onChange={() => setForTime('permanent')}
+              />
+            </div>
+            <div className="tab_panel_content w-full md:w-3/6 mt-8">
+              <input
+                type="date"
+                placeholder="dd/mm/aaaa"
+                className="p-3 rounded-xl w-full border border-yellow-500"
+              ></input>
+            </div>
+          </div>
         </section>
       </div>
     </section>

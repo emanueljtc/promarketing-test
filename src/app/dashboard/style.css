@@ -1,5 +1,5 @@
 .dashboard {
-    @apply h-[calc(100vh-7rem)] flex flex-col justify-center items-center text-slate-300 
+    @apply h-[calc(100vh-7rem)] items-center bg-white text-slate-300
 }
 
 .title {

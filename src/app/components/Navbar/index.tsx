@@ -1,11 +1,14 @@
 'use client';
-import { PAGES } from '@/app/utils';
 import Link from 'next/link';
 import React from 'react';
 import './style.css';
+import { signOut } from 'next-auth/react';
 const NavBar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
+  const handleLogout = () => {
+    signOut();
+  };
   return (
     <>
       <header className="header">
@@ -16,13 +19,9 @@ const NavBar = () => {
           <div className="hidden md:block">
             <nav>
               <ul className="flex space-x-4">
-                {PAGES.map((page, index) => (
-                  <li key={index}>
-                    <Link href={page.path} className="link_pages">
-                      {page.title}
-                    </Link>
-                  </li>
-                ))}
+                <li className="link_pages" onClick={handleLogout}>
+                  Logout
+                </li>
               </ul>
             </nav>
           </div>
@@ -52,15 +51,9 @@ const NavBar = () => {
             isOpen ? 'block' : 'hidden'
           } px-2 pt-2 pb-4 animate-fade-down`}
         >
-          {PAGES.map((page, index) => (
-            <Link
-              key={index}
-              href={`/${page.path}`}
-              className="block link_pages"
-            >
-              {page.title}
-            </Link>
-          ))}
+          <p className="link_nav" onClick={handleLogout}>
+            Logout
+          </p>
         </div>
       </header>
     </>

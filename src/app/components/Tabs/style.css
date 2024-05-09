@@ -67,3 +67,7 @@ input:focus-visible+label {
     @apply text-xl text-neutral-500 mb-4 uppercase;
     line-height: 23.44px;
 }
+
+.tab_panel_content {
+    @apply flex justify-between items-center;
+}
