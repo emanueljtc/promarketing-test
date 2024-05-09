@@ -15,11 +15,17 @@ const Button: React.FC<ButtonProps> = ({
   isDisabled = false,
 }) => {
   return (
-    <button className={variant} type={type} onClick={onClick} disabled={isDisabled}>
+    <button
+      className={variant}
+      type={type}
+      onClick={onClick}
+      disabled={isDisabled}
+    >
       {title}
     </button>
   );
 };
 
 export default Button;
+
 
