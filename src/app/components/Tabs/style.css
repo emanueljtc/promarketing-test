@@ -1,0 +1,69 @@
+.tabset>input[type="radio"] {
+    @apply absolute;
+    left: -200vw;
+}
+
+.tabset .tab-panel {
+    @apply hidden;
+}
+
+.tabset>input:first-child:checked~.tab-panels>.tab-panel:first-child,
+.tabset>input:nth-child(3):checked~.tab-panels>.tab-panel:nth-child(2),
+.tabset>input:nth-child(5):checked~.tab-panels>.tab-panel:nth-child(3),
+.tabset>input:nth-child(7):checked~.tab-panels>.tab-panel:nth-child(4),
+.tabset>input:nth-child(9):checked~.tab-panels>.tab-panel:nth-child(5),
+.tabset>input:nth-child(11):checked~.tab-panels>.tab-panel:nth-child(6) {
+    @apply block;
+}
+
+.tabset>label {
+    @apply text-blue-900 cursor-pointer text-sm inline-block relative;
+    padding: 15px 15px 25px;
+    border: 1px solid transparent;
+    border-bottom: 0;
+    line-height: 28px;
+    letter-spacing: 0.25px;
+}
+
+.tabset>label::after {
+    @apply bg-gray-100 absolute;
+    content: "";
+    left: 15px;
+    bottom: 10px;
+    width: 98%;
+    height: 2px;
+}
+
+input:focus-visible+label {
+    outline: 2px solid rgba(0, 102, 204, 1);
+    border-radius: 3px;
+}
+
+.tabset>label:hover,
+.tabset>input:focus+label,
+.tabset>input:checked+label {
+    @apply text-blue-500
+}
+
+.tabset>label:hover::after,
+.tabset>input:focus+label::after,
+.tabset>input:checked+label::after {
+    @apply bg-blue-900
+}
+
+.tabset>input:checked+label {
+    margin-bottom: -1px;
+}
+
+.tabset {
+    max-width: 65em;
+}
+
+.bg-gray-transparent {
+    background-color: rgba(224, 228, 239, 0.3);
+}
+
+.title-tab {
+    @apply text-xl text-neutral-500 mb-4 uppercase;
+    line-height: 23.44px;
+}
