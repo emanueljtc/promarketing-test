@@ -1,3 +1,7 @@
 .primary {
     @apply w-full bg-blue-500 my-4 text-white p-3 rounded-lg uppercase hover:bg-blue-700 hover:animate-pulse
 }
+
+.dark{
+    @apply w-full bg-blue-900 my-4 text-white p-3 rounded-lg uppercase hover:bg-blue-700 hover:animate-pulse
+}

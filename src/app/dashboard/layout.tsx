@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import NavBar from '../components/Navbar';
@@ -17,8 +18,8 @@ export default function DashboardLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-          <NavBar />
-          {children}
+        <NavBar />
+        {children}
       </body>
     </html>
   );
