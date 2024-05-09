@@ -1,0 +1,31 @@
+.content {
+    @apply h-[calc(100vh-7rem)] flex justify-center items-center
+}
+
+.input {
+    @apply p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full
+}
+
+.label {
+    @apply text-slate-500 mb-2 block
+}
+
+.error-message {
+    @apply text-red-500 capitalize text-sm
+}
+
+.error-message-alert{
+    @apply bg-red-500 text-white capitalize text-xl p-3 rounded mb-4
+}
+
+.form {
+    @apply w-11/12 md:w-3/12
+}
+
+.title {
+    @apply text-slate-200 text-4xl font-bold mb-4 animate-flip-down
+}
+
+.link {
+    @apply text-blue-500 hover:underline hover:animate-pulse 
+}
