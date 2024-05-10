@@ -16,3 +16,9 @@ Es una prueba tecnica que se desarrollo bajo Next js 14, Tailwind, Prisma entre 
 ## Uso
 
 Se corre con npm  o yarn es necesario  node 18 o superior, Importante se debe crear un .env a justamente con las variables de entorno que estan en el .env.template  para que no exista problemas
+
+Para acceder entran con estas credenciales
+email: emanueljtc90@gmail.com
+password: querty
+
+o se registran en el el modulo de registro
