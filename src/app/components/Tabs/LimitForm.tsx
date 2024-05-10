@@ -122,6 +122,14 @@ const LimitForm = () => {
     }
   }, [showAlertSuccess]);
 
+   React.useEffect(() => {
+     if (errorAlert) {
+       setTimeout(() => {
+         setErrorAlert(null);
+       }, 1000);
+     }
+   }, [errorAlert]);
+
   return (
     <>
       {showAlertSuccess && (
@@ -311,4 +319,8 @@ const LimitForm = () => {
 };
 
 export default LimitForm;
+
+
+
+
 
