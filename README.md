@@ -4,6 +4,9 @@
 
 Es una prueba tecnica que se desarrollo bajo Next js 14, Tailwind, Prisma entre otras tecnologias
 
+## Online
+`https://promarketing-test-production.up.railway.app/auth/login`
+
 ## Instalación
 
 1. Clona el repositorio: `git clone https://github.com/emanueljtc/promarketing-test.git`
@@ -12,4 +15,4 @@ Es una prueba tecnica que se desarrollo bajo Next js 14, Tailwind, Prisma entre 
 
 ## Uso
 
-Se debe correr con npm  o yarn eso si node 18 o superior
+Se corre con npm  o yarn es necesario  node 18 o superior, Importante se debe crear un .env a justamente con las variables de entorno que estan en el .env.template  para que no exista problemas
