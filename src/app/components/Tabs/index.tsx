@@ -5,19 +5,22 @@
  */
 'use client';
 import React from 'react';
-import TabItem from './TabItem';
-import ContainerForm from '../ContainerForm';
-import { Roboto } from 'next/font/google';
-import Checkbox from '@/app/components/Checkbox';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Button from '../Button';
-import 'react-datepicker/dist/react-datepicker.css';
-import './style.css';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { ErrorMessage } from '@hookform/error-message';
-import MessageAlert from '../MessageAlert';
+import {
+  TitleSection,
+  Checkbox,
+  ContainerForm,
+  TabItem,
+  MessageAlert,
+} from '@/app/components';
+import 'react-datepicker/dist/react-datepicker.css';
+import './style.css';
+import LimitForm from './LimitForm';
 
 export type TitemsTab = {
   id: string;
@@ -32,8 +35,6 @@ type TProviders = {
   checked: boolean;
 };
 type TForTime = 'temporary' | 'permanent' | '';
-
-const roboto = Roboto({ weight: ['700'], subsets: ['latin'] });
 
 const Tabs = () => {
   const [tab, setTab] = React.useState<string>('create');
@@ -202,9 +203,7 @@ const Tabs = () => {
           <form className="flex flex-col" onSubmit={onSubmit}>
             <ContainerForm paddingBottom="0">
               <div className="bg-gray-transparent rounded-lg p-3.5 max-w-3xl">
-                <h2 className={`${roboto.className} title-tab`}>
-                  Autoexclusión PROVEEDORES
-                </h2>
+                <TitleSection title="Autoexclusión PROVEEDORES" />
                 <div id="contentCheckbox" className="mt-4">
                   <div className="flex items-center border-b-neutral-200 border-b-2 pb-4">
                     {providers.length >= 1 ? (
@@ -233,9 +232,7 @@ const Tabs = () => {
             </ContainerForm>
             <ContainerForm>
               <div className="bg-gray-transparent rounded-lg p-3.5 max-w-3xl md:min-w-[48rem]">
-                <h2 className={`${roboto.className} title-tab`}>
-                  Por un periodo de tiempo{' '}
-                </h2>
+                <TitleSection title="Por un periodo de tiempo" />
                 {providers.length >= 1 ? (
                   <>
                     <div className="tab_panel_content w-3/4 md:w-2/5">
@@ -316,7 +313,9 @@ const Tabs = () => {
             </ContainerForm>
           </form>
         </div>
-        <section id="limit" className="tab-panel"></section>
+        <section id="limit" className="tab-panel">
+          <LimitForm />
+        </section>
       </div>
     </section>
   );
