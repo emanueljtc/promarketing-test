@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import NavBar from '../components/Navbar';
-
+import './style.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {

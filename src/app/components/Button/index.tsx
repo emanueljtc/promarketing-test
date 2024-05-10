@@ -3,7 +3,7 @@ import './style.css';
 interface ButtonProps {
   title: string;
   type: 'button' | 'submit' | 'reset' | undefined;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'dark';
   onClick?: () => void;
   isDisabled?: boolean;
 }

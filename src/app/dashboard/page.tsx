@@ -1,19 +1,15 @@
 'use client';
 
 import React from 'react';
-import { Button } from '../components';
-import { signOut } from 'next-auth/react';
 import './style.css';
-
+import { Tabs } from '../components';
 
 const DashboardPage = () => {
-  const handleLogout = () => {
-    signOut();
-  };
   return (
     <section className="dashboard">
-      <h1 className="title">Dashboard</h1>
-      <Button title="Logout" onClick={handleLogout} type="button" />
+      <div className="w-11/12 md:w-2/3 h-full m-auto  flex flex-col justify-center md:items-center ">
+        <Tabs />
+      </div>
     </section>
   );
 };
